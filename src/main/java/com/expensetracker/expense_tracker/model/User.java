@@ -1,6 +1,6 @@
 package com.expensetracker.expense_tracker.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -19,6 +19,6 @@ public class User {
 
     @Column(nullable = false, unique = true)
     private String username;
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 }

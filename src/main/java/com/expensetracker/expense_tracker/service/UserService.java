@@ -31,7 +31,7 @@ public class UserService {
 	public LoginResponse login(UserDTO userDTO) {
 	    User user = userRepository.findByUsername(userDTO.getUsername());
 
-	    if (user == null || !user.getPassword().equals(userDTO.getPassword())) {
+	    if (user == null || user.getPassword() == null || !user.getPassword().equals(userDTO.getPassword())) {
 	        return new LoginResponse("Invalid username or password!", null);
 	    }
 
